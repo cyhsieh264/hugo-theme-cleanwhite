@@ -15,6 +15,11 @@
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="post-heading">
                     <div class="tags">
+                        {{ range .Params.categories }}
+                        <a class="tags-categories" style="border:none;font-size:18px;font-weight:bold;padding:0px" href="{{ "/categories/" | relLangURL }}{{ . | urlize }}" title="{{ . }}">
+                            [{{ . }}]
+                        </a>
+                        {{ end }}
                         {{ range .Params.tags }}
                         <a class="tag" href="{{ "/tags/" | relLangURL }}{{ . | urlize }}" title="{{ . }}">
                             {{ . }}
