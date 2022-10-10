@@ -21,7 +21,8 @@
                         </a>
                         {{ end }}
                     </div>
-                    <h1>{{ .Title }}</h1>
+                    <h1 style="font-family: 'Red Hat Display', sans-serif; font-weight: 600;">{{ .Title }}</h1>
+                    <!-- <h1>{{ .Title }}</h1> -->
                     <h2 class="subheading">{{ .Params.subtitle }}</h2>
                     <span class="meta">
                         {{ if .Params.metadata }}
@@ -34,8 +35,8 @@
                             {{ end }}
                         {{ else }}
                             Posted by 
-                            {{ if .Params.author }}
-                                {{ .Params.author }}
+                            {{ if .Site.Params.author }}
+                                {{ .Site.Params.author }}
                             {{ else }}
                                     {{ .Site.Title }}
                             {{ end }} 
@@ -79,9 +80,7 @@
                 -->
                 {{ .Content }}
 
-                {{ if .Site.Params.reward }}
-                {{ partial "reward.html" . }}
-                {{ end }}
+                {{ partial "likecoin.html" . }}
 
                 {{ if or (.PrevInSection) (.NextInSection) }}
                 <hr>
