@@ -4,7 +4,7 @@
 {{ else }}
 <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
 {{ end }}
-    <div class="container-fluid">
+    <div class="container-fluid" style="font-family: 'Red Hat Display', sans-serif;">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header page-scroll">
             <button type="button" class="navbar-toggle">
@@ -13,7 +13,10 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="{{ "/" | relLangURL }}">{{ .Site.Title }}</a>
+            <a class="navbar-brand" href="{{ "/" | relLangURL }}" style="font-weight: 700;">
+                <span><img src="/img/logo.png" alt="CY logo" width="40" style="margin-bottom: 4px;"></span>
+                &nbsp;LifeNote
+            </a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -26,7 +29,7 @@
             <div class="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="{{ "/" | relLangURL }}">All Posts</a>
+                        <a href="{{ "/" | relLangURL }}">Home</a>
                     </li>
                     {{ if not .Site.Params.omit_categories }}
                         {{ range $name, $taxonomy := .Site.Taxonomies.categories }}
@@ -39,9 +42,9 @@
 		    {{ range .Site.Params.addtional_menus }}
                         <li><a href="{{.href | relLangURL}}/">{{.title}}</a></li>
                     {{ end }}
-		            <li>
+		            <!-- <li>
                         <a href="{{ "search" | relURL }}"><i class="fa fa-search"></i></a>
-		           </li>
+		           </li> -->
                 </ul>
             </div>
         </div>
